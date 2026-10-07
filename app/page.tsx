@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 import RsvpCard from "./RsvpCard";
+import StoryCarousel from "./StoryCarousel";
 
 function ArrowRight() {
   // eslint-disable-next-line @next/next/no-img-element
@@ -17,6 +19,7 @@ export default function Home() {
           <a href="#story">Story</a>
           <a href="#programme">Programme</a>
           <a href="#visit">Visit</a>
+          <Link href="/experience">Experience</Link>
         </nav>
         <a href="#rsvp" className={styles.rsvpEntry}>
           RSVP
@@ -83,27 +86,7 @@ export default function Home() {
           </p>
           <h2 className={styles.h2}>Three chambers. One night.</h2>
         </div>
-        <div className={`${styles.gallery} ${styles.showDesktopFlex}`}>
-          {[1, 2, 3].map((n) => (
-            <div className={styles.galleryItem} key={n}>
-              <Image
-                src={`/images/gallery-${n}.png`}
-                alt=""
-                fill
-                sizes="(min-width: 900px) 33vw, 100vw"
-              />
-            </div>
-          ))}
-        </div>
-        <div className={`${styles.storyImage} ${styles.showMobile}`}>
-          <Image src="/images/story-mobile.png" alt="" fill sizes="100vw" />
-        </div>
-        <div className={styles.storyboard}>
-          <span className={styles.storyLabel}>Live pulse · 64% to midnight</span>
-          <span className={styles.dots} aria-hidden="true">
-            ●　○　○　○
-          </span>
-        </div>
+        <StoryCarousel />
       </section>
 
       <section className={styles.programme} id="programme">
